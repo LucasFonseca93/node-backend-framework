@@ -36,108 +36,16 @@ cd {diretorio_clone}
 npm i
 ```
 
-Feito isso
+Feito isso o framework já estará com todas as suas dependências instaladas.<br/>
+Basta agora alterar o arquivo app/config;ds.js e adicionar as configurações de conexão
+com o redis e o mongo.
+<br/>
+* Lembre-se de alteração as configurações do arquivo .env na raiz do projeto.
 
-### Services
+#### Execução do projeto.
 
-#### Upload
+Para inicializar o projeto para executar o arquivo index.js
 
-method: POST <br/>
-url: https://sisar.policiamilitar.mg.gov.br/backend/file/store
-headers:
 ```
-Authorization: "your sso token"
-Content-Type: application/json
+node index.js
 ```
-body:
-```
-{
-    type: "file extension",
-    content: "file base64",
-    app: "application id on SISAR",
-    dir: "directory to output file",
-    name: "name alias for render file",
-    public: false // <- boolean thats define file has public or not
-}
-```
-response:
-```
-The response outputs a document generated like:
-{
-    "_id": "59886836e4f06e0001a0062a",
-    "_name": "Biblioteca.jpg",
-    "_path": "/opt/arquivos/lite/13:16:38_GMT+0000_(UTC).jpg",
-    "_app": "lite",
-    "_dir": "/opt/arquivos/lite/",
-    "_hash": "f9c3f2a16f7da6e6135001e8f8a095af",
-    "_user": "1445022",
-    "_type": ".jpg",
-    "_mime": "image/jpeg"
-}
-```
-
-#### Info
-
-method: GET <br/>
-url: https://sisar.policiamilitar.mg.gov.br/backend/file/info/{fileId} <br/>
-response: responses like the same of upload
-
-#### Make file public
-
-method: GET <br/>
-url: https://sisar.policiamilitar.mg.gov.br/backend/file/makePublic/{fileId} <br/>
-headers:
-```
-Authorization: "your sso token"
-```
-response:
-```
-The response outputs only a basic json like:
-{
-    "message": "ok"
-}
-```
-
-#### Make file private
-
-method: GET <br/>
-url: https://sisar.policiamilitar.mg.gov.br/backend/file/makePrivate/{fileId} <br/>
-headers:
-```
-Authorization: "your sso token"
-```
-response:
-```
-The response outputs only a basic json like:
-{
-    "message": "ok"
-}
-```
-
-#### Download private files
-
-method: GET <br/>
-url: https://sisar.policiamilitar.mg.gov.br/backend/file/get/{fileId} <br/>
-headers:
-```
-Authorization: "your sso token"
-```
-response:
-```
-The response is a file stream in case of media files and conventional download
-for other files type
-```
-
-#### Download public files
-
-method: GET <br/>
-url: https://sisar.policiamilitar.mg.gov.br/backend/file/stream/{fileId} <br/>
-response:
-```
-The response is a file stream in case of media files and conventional download
-for other files type
-```
-
-### Author
-
-* **Lucas Fonseca** 
