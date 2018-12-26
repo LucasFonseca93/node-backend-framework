@@ -5,7 +5,8 @@ redis e mongo sem nenhuna preocupação com relação ao gerenciamento de recurs
 
 ### Estrutura básica
 
-Dentro da pasta app estão localizados os fontes da aplicação.<br/>
+Os fontes da aplicação estarão localizados dentro da pasta app.<br/>
+A pasta arch contem diversos arquivos que compõem o core do framework e não é recomendável alterar nada neste diretório.
 O diretório se divide em 2 subdiretórios da seguinte forma:
 
 ```
